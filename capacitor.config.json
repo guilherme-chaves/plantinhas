@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "plantinhas",
+	"webDir": "dist",
+	"bundledWebRuntime": false
+}
