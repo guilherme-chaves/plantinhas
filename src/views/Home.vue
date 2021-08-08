@@ -10,8 +10,11 @@
       <ion-button expand="block" color="primary" shape="round" class="botao" @click="() => router.push('/login')">
         Entrar
       </ion-button>
-      <ion-button expand="block" color="secondary" shape="round" class="botao" @click="() => router.push('/configuracao')">
+      <ion-button expand="block" color="secondary" shape="round" class="botao" @click="() => router.push('/cadastro')">
         Cadastrar
+      </ion-button>
+      <ion-button expand="block" color="secondary" shape="round" class="botao" @click="() => router.push('/tabs/home')">
+        teste
       </ion-button>
     </ion-footer>
   </ion-page>

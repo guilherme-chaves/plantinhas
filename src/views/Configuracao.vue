@@ -1,6 +1,7 @@
 <template>
   <ion-page>
      <app-header></app-header>
+
      <ion-content :fullscreen="true"> 
      <ion-grid>
      <ion-row>
@@ -46,12 +47,6 @@
      </ion-row>
      </ion-grid>
     </ion-content>
-
-    <ion-footer>
-      <ion-button expand="block" color="primary" shape="round" class="botao">
-        Entrar
-      </ion-button>
-    </ion-footer>
   </ion-page>
 </template>
 
@@ -70,7 +65,7 @@ export default defineComponent({
 });
 </script>
 
-<style>
+<style scoped>
 ion-content{
   --ion-background-color: white;
 }

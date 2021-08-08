@@ -48,7 +48,7 @@ export default defineComponent({
 });
 </script>
 
-<style>
+<style scoped>
 ion-content{
   --ion-background-color: white;
 }

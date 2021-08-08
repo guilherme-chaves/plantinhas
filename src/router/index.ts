@@ -3,7 +3,7 @@ import { RouteRecordRaw } from 'vue-router';
 import Home from '../views/Home.vue'
 import Login from '../views/Login.vue'
 import Cadastro from '../views/Cadastro.vue'
-import Configuracao from '../views/Configuracao.vue'
+import AppFooter from '../views/AppFooter.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -26,9 +26,35 @@ const routes: Array<RouteRecordRaw> = [
     component: Cadastro
   },
   {
-    path: '/configuracao',
-    name: 'Configuracao',
-    component: Configuracao
+    path: '/tabs/',
+    name: 'Tabs',
+    component: AppFooter,
+    children: [
+      {
+        path: '',
+        redirect: 'home'
+      },
+      {
+        path: 'home',
+        component: () => import('@/views/Index.vue')
+      },
+      {
+        path: 'artigos',
+        component: () => import('@/views/artigos.vue')
+      },
+      {
+        path: 'colecao',
+        component: () => import('@/views/colecao.vue')
+      },
+      {
+        path: 'conquistas',
+        component: () => import('@/views/conquistas.vue')
+      },
+      {
+        path: 'configuracao',
+        component: () => import('@/views/Configuracao.vue')
+      },
+    ]
   }
 ]
 
