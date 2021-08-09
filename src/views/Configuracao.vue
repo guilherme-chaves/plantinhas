@@ -1,7 +1,6 @@
 <template>
   <ion-page>
      <app-header></app-header>
-
      <ion-content :fullscreen="true"> 
      <ion-grid>
      <ion-row>
@@ -51,16 +50,29 @@
 </template>
 
 <script lang="ts">
-import { IonContent, IonPage} from '@ionic/vue';
+import { 
+  IonContent,
+  IonPage,
+  IonGrid,
+  IonRow,
+  IonCol,
+  IonInput,
+  IonButton
+} from '@ionic/vue';
 import { defineComponent } from 'vue';
-import AppHeader from './AppHeader.vue';
+import AppHeader from '../components/AppHeader.vue';
 
 export default defineComponent({
   name: 'Configuracao',
   components: {
     IonContent,
     IonPage,
-    AppHeader,
+    IonGrid,
+    IonRow,
+    IonCol,
+    IonInput,
+    IonButton,
+    AppHeader
   }
 });
 </script>

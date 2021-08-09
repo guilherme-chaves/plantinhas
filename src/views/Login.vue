@@ -31,7 +31,7 @@
 </template>
 
 <script lang="ts">
-import { IonContent, IonPage} from '@ionic/vue';
+import { IonContent, IonPage, IonGrid, IonRow, IonCol, IonInput, IonFooter, IonButton } from '@ionic/vue';
 import { defineComponent } from 'vue';
 
 export default defineComponent({
@@ -39,6 +39,12 @@ export default defineComponent({
   components: {
     IonContent,
     IonPage,
+    IonGrid,
+    IonRow,
+    IonCol,
+    IonInput,
+    IonFooter,
+    IonButton,
   }
 });
 </script>

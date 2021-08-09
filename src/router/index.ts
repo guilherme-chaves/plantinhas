@@ -1,60 +1,62 @@
 import { createRouter, createWebHistory } from '@ionic/vue-router';
 import { RouteRecordRaw } from 'vue-router';
-import Home from '../views/Home.vue'
-import Login from '../views/Login.vue'
-import Cadastro from '../views/Cadastro.vue'
-import AppFooter from '../views/AppFooter.vue'
+import Home from '../views/Start.vue';
+import AppFooter from '../components/AppFooter.vue';
 
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
-    redirect: '/home'
+    redirect: '/start'
   },
   {
-    path: '/home',
-    name: 'Home',
+    path: '/start',
+    name: 'Start',
     component: Home
   },
   {
     path: '/login',
     name: 'Login',
-    component: Login
+    component: () => import('@/views/Login.vue')
   },
   {
     path: '/cadastro',
     name: 'Cadastro',
-    component: Cadastro
+    component: () => import('@/views/Cadastro.vue')
   },
   {
-    path: '/tabs/',
-    name: 'Tabs',
+    path: '/tabs',
     component: AppFooter,
     children: [
       {
         path: '',
-        redirect: 'home'
+        redirect: '/home'
       },
       {
-        path: 'home',
-        component: () => import('@/views/Index.vue')
+        path: '/home',
+        name: 'Home',
+        component: () => import('@/views/Home.vue')
       },
       {
-        path: 'artigos',
-        component: () => import('@/views/artigos.vue')
+        path: '/artigos',
+        name: 'Artigos',
+        component: () => import('@/views/Artigos.vue')
       },
       {
-        path: 'colecao',
-        component: () => import('@/views/colecao.vue')
+        path: '/colecao',
+        name: 'Colecao',
+        component: () => import('@/views/Colecao.vue')
       },
       {
-        path: 'conquistas',
-        component: () => import('@/views/conquistas.vue')
-      },
-      {
-        path: 'configuracao',
-        component: () => import('@/views/Configuracao.vue')
+        path: '/conquistas',
+        name: 'Conquistas',
+        component: () => import('@/views/Conquistas.vue')
       },
     ]
+  },
+  {
+    path: '/configuracao',
+    name: 'Configuracoes',
+    component: () => import('@/views/Configuracao.vue')
   }
 ]
 

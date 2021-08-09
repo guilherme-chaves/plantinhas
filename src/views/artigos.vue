@@ -1,6 +1,5 @@
 <template>
     <ion-page>
-        <app-header></app-header>
         <ion-content :fullscreen="true">
             <p>Artigos</p>
         </ion-content>
@@ -10,14 +9,12 @@
 <script lang="ts">
 import { IonContent, IonPage} from '@ionic/vue';
 import { defineComponent } from 'vue';
-import AppHeader from './AppHeader.vue';
 
 export default defineComponent({
-  name: 'Configuracao',
+  name: 'Artigos',
   components: {
     IonContent,
     IonPage,
-    AppHeader,
   }
 });
 </script>
