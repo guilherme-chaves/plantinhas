@@ -6,7 +6,7 @@
         </ion-header>
         <ion-content>
             <ion-list>
-                <ion-item button @click="() => router.push('/configuracao')">
+                <ion-item button @click="() => router.push('/home/configuracao')">
                     <ion-icon :icon="personSharp"></ion-icon>                    
                     Configurações
                 </ion-item>

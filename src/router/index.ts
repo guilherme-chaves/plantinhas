@@ -51,13 +51,13 @@ const routes: Array<RouteRecordRaw> = [
         name: 'Conquistas',
         component: () => import('@/views/Conquistas.vue')
       },
+      {
+        path: '/home/configuracao',
+        name: 'Configuracoes',
+        component: () => import('@/views/Configuracao.vue')
+      }
     ]
   },
-  {
-    path: '/configuracao',
-    name: 'Configuracoes',
-    component: () => import('@/views/Configuracao.vue')
-  }
 ]
 
 const router = createRouter({
