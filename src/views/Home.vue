@@ -1,7 +1,6 @@
 <template>
     <ion-page>
         <ion-content :fullscreen="true">
-            <p>Inicio</p>
             <tasks-date-picker></tasks-date-picker>
         </ion-content>
     </ion-page>
