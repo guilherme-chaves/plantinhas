@@ -1,7 +1,7 @@
 <template>
     <ion-page>
         <ion-content :fullscreen="true">
-            <p>Artigos</p>
+            <ion-title><strong>Artigos</strong></ion-title>
         </ion-content>
     </ion-page>
 </template>
@@ -18,3 +18,12 @@ export default defineComponent({
   }
 });
 </script>
+
+<style scoped>
+  ion-title{
+    text-align: center;
+    font-size: 25px;
+    line-height: 26px;
+    color: #2699fb;
+  }
+</style>
