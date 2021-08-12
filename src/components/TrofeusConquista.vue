@@ -1,20 +1,25 @@
 <template>
     <ion-col size="4">
-        <ion-item>
-            <ion-thumbnail>
-                <ion-icon :icon="trophyOutline"></ion-icon>
-            </ion-thumbnail>
-        </ion-item>
+        <ion-button class="botao-trofeu">
+            <ion-icon :icon="trophyOutline" @click="setOpen(true)"></ion-icon>
+        </ion-button>
     </ion-col>
 </template>
 
 <script lang="ts">
+import { IonCol,
+    IonButton,
+    IonIcon,
+} from '@ionic/vue';
 import { defineComponent } from 'vue';
 import { trophyOutline } from 'ionicons/icons';
 
 export default defineComponent({
   name: 'TrofeusConquista',
   components: {
+    IonCol,
+    IonButton,
+    IonIcon,
   },
   setup(){
     return{
@@ -27,22 +32,37 @@ export default defineComponent({
 <style scoped>
     ion-icon{
         font-size: 45px;
+        color: white;
     }
 
-    ion-thumbnail{
-        max-width: max-content;
-        max-height: max-content;
-        text-align: center;
+    .botao-trofeu {
+        margin: 0 auto 0 auto;
         vertical-align: middle;
-        padding-top: 6px;
+        position: absolute;
+        top: 4px;
+        bottom: 4px;
+        left: 4px;
+        right: 4px;
+        width: 27.5vw;
+        height: 27.5vw;
+        --background: #d7d8da;
+        --border-radius: 50%;
+        --border-color: white;
+        --border-style: solid;
+        --border-width: 4px;
     }
 
-    ion-item{
-        max-height: fit-content;
-        vertical-align: middle;
-        border-radius: 50%;
-        border: 4px white solid;
-        box-shadow: 0 0 16 8 #00000020;
+    .trofeu-obtido {
+        --background: #3880ff;
+    }
+
+    .trofeu-obtido-novo {
+        --background: #20ef70;
+    }
+
+    ion-col {
+        height: 30vw;
+        position: relative;
     }
 
 </style>

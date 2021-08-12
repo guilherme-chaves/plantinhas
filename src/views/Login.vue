@@ -23,19 +23,25 @@
     </ion-content>
 
     <ion-footer>
-      <ion-button expand="block" color="primary" shape="round" class="botao">
-        Entrar
+      <ion-button expand="block" color="primary" shape="round" class="botao" @click="login">
+        <ion-spinner v-if="loading"></ion-spinner>
+        <span v-else>Entrar</span>
       </ion-button>
     </ion-footer>
   </ion-page>
 </template>
 
 <script lang="ts">
-import { IonContent, IonPage, IonGrid, IonRow, IonCol, IonInput, IonFooter, IonButton } from '@ionic/vue';
+import { IonContent, IonPage, IonGrid, IonRow, IonCol, IonInput, IonFooter, IonButton, IonSpinner } from '@ionic/vue';
 import { defineComponent } from 'vue';
 
 export default defineComponent({
   name: 'Login',
+  data() {
+    return {
+      loading: false
+    }
+  },
   components: {
     IonContent,
     IonPage,
@@ -45,6 +51,16 @@ export default defineComponent({
     IonInput,
     IonFooter,
     IonButton,
+    IonSpinner
+  },
+  methods: {
+    async login() {
+      this.loading = true;
+      setTimeout(() => {
+        console.log("Carregando...")
+        this.loading = false;
+      }, 2000);
+    }
   }
 });
 </script>
