@@ -5,7 +5,7 @@
      <ion-row>
      <ion-col size="12" size-sm>
      <div id="container">
-        <strong>Alterar senha</strong>
+        <strong>Nome</strong>
      </div>
      </ion-col>
      <ion-col size="12" size-sm>
@@ -47,74 +47,3 @@
     </ion-content>
   </ion-page>
 </template>
-
-<script lang="ts">
-import { 
-  IonContent,
-  IonPage,
-  IonGrid,
-  IonRow,
-  IonCol,
-  IonInput,
-  IonButton
-} from '@ionic/vue';
-import { defineComponent } from 'vue';
-import { lockClosed, mail } from 'ionicons/icons';
-
-export default defineComponent({
-  name: 'Configuracao',
-  components: {
-    IonContent,
-    IonPage,
-    IonGrid,
-    IonRow,
-    IonCol,
-    IonInput,
-    IonButton,
-  },
-  setup() {
-    return{
-      lockClosed,
-      mail
-    }
-  }
-});
-</script>
-
-<style scoped>
-ion-icon{
-  margin-left: 5%;
-}
-
-ion-content{
-  --ion-background-color: white;
-}
-
-ion-row{
-    margin-top: 10%;
-}
-
-#container {
-  text-align: start;
-}
-
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
-  color: #2699fb;
-}
-
-#input{
-    margin-top: 5%;
-}
-
-#input ion-input { 
-    border: 1px #2699fb solid; 
-    border-radius: 2em;
-    color: #2699fb;
-}
-
-.botao{
-  margin: 1em;
-}
-</style>

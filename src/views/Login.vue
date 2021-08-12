@@ -10,12 +10,12 @@
      </ion-col>
      <ion-col size="12" size-sm>
      <div id="input">
-         <ion-input type="email" placeholder="nome de usuario"></ion-input>
+         <ion-input type="email" placeholder="nome de usuario"><ion-icon :icon="personSharp"></ion-icon></ion-input>
      </div>
      </ion-col>
      <ion-col size="12" size-sm>
      <div id="input">
-         <ion-input type="password" placeholder="senha"></ion-input>
+         <ion-input type="password" placeholder="senha"><ion-icon :icon="lockClosed"></ion-icon></ion-input>
      </div>
      </ion-col>
      </ion-row>
@@ -23,25 +23,20 @@
     </ion-content>
 
     <ion-footer>
-      <ion-button expand="block" color="primary" shape="round" class="botao" @click="login">
-        <ion-spinner v-if="loading"></ion-spinner>
-        <span v-else>Entrar</span>
+      <ion-button expand="block" color="primary" shape="round" class="botao">
+        Entrar
       </ion-button>
     </ion-footer>
   </ion-page>
 </template>
 
 <script lang="ts">
-import { IonContent, IonPage, IonGrid, IonRow, IonCol, IonInput, IonFooter, IonButton, IonSpinner } from '@ionic/vue';
+import { IonContent, IonPage, IonGrid, IonRow, IonCol, IonInput, IonFooter, IonButton } from '@ionic/vue';
 import { defineComponent } from 'vue';
+import { personSharp, lockClosed } from 'ionicons/icons';
 
 export default defineComponent({
   name: 'Login',
-  data() {
-    return {
-      loading: false
-    }
-  },
   components: {
     IonContent,
     IonPage,
@@ -51,21 +46,21 @@ export default defineComponent({
     IonInput,
     IonFooter,
     IonButton,
-    IonSpinner
   },
-  methods: {
-    async login() {
-      this.loading = true;
-      setTimeout(() => {
-        console.log("Carregando...")
-        this.loading = false;
-      }, 2000);
+  setup() {
+    return{
+      personSharp,
+      lockClosed
     }
   }
 });
 </script>
 
 <style scoped>
+ion-icon{
+  margin-left: 5%;
+}
+
 ion-content{
   --ion-background-color: white;
 }
