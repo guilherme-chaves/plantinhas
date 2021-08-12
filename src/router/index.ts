@@ -24,6 +24,11 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('@/views/Cadastro.vue')
   },
   {
+    path: '/novaplanta',
+    name: 'NovaPlanta',
+    component: () => import('@/views/NovaPlanta.vue')
+  },
+  {
     path: '/tabs',
     component: AppFooter,
     children: [

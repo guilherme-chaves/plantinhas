@@ -10,12 +10,12 @@
      </ion-col>
      <ion-col size="12" size-sm>
      <div id="input">
-         <ion-input type="email" placeholder="nome de usuario"></ion-input>
+         <ion-input type="email" placeholder="nome de usuario"><ion-icon :icon="personSharp"></ion-icon></ion-input>
      </div>
      </ion-col>
      <ion-col size="12" size-sm>
      <div id="input">
-         <ion-input type="password" placeholder="senha"></ion-input>
+         <ion-input type="password" placeholder="senha"><ion-icon :icon="lockClosed"></ion-icon></ion-input>
      </div>
      </ion-col>
      </ion-row>
@@ -33,6 +33,7 @@
 <script lang="ts">
 import { IonContent, IonPage, IonGrid, IonRow, IonCol, IonInput, IonFooter, IonButton } from '@ionic/vue';
 import { defineComponent } from 'vue';
+import { personSharp, lockClosed } from 'ionicons/icons';
 
 export default defineComponent({
   name: 'Login',
@@ -45,11 +46,21 @@ export default defineComponent({
     IonInput,
     IonFooter,
     IonButton,
+  },
+  setup() {
+    return{
+      personSharp,
+      lockClosed
+    }
   }
 });
 </script>
 
 <style scoped>
+ion-icon{
+  margin-left: 5%;
+}
+
 ion-content{
   --ion-background-color: white;
 }
