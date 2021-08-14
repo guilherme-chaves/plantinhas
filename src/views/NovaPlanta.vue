@@ -47,3 +47,22 @@
     </ion-content>
   </ion-page>
 </template>
+
+<script lang="ts">
+import { IonContent, IonPage, IonButton } from '@ionic/vue';
+import { defineComponent } from 'vue';
+import { useRouter } from 'vue-router';
+
+export default defineComponent({
+  name: 'NovaPlanta',
+  components: {
+    IonContent,
+    IonPage,
+    IonButton,
+  },
+  setup() {
+      const router = useRouter();
+      return { router };
+ }
+});
+</script>

@@ -24,11 +24,6 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('@/views/Cadastro.vue')
   },
   {
-    path: '/novaplanta',
-    name: 'NovaPlanta',
-    component: () => import('@/views/NovaPlanta.vue')
-  },
-  {
     path: '/tabs',
     component: AppFooter,
     children: [
@@ -60,6 +55,16 @@ const routes: Array<RouteRecordRaw> = [
         path: '/home/configuracao',
         name: 'Configuracoes',
         component: () => import('@/views/Configuracao.vue')
+      },
+      {
+        path: '/colecao/novaplanta',
+        name: 'NovaPlanta',
+        component: () => import('@/views/NovaPlanta.vue')
+      },
+      {
+        path: '/colecao/planta',
+        name: 'Planta',
+        component: () => import('@/views/Planta.vue')
       }
     ]
   },

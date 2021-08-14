@@ -1,10 +1,10 @@
 <template>
     <ion-page>
         <ion-content :fullscreen="true">
-            <p>Coleção</p>
+            <item-colecao></item-colecao>
             <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-            <ion-fab-button>
-            <ion-icon :icon="add" @click="() => router.push('/novaplanta')"></ion-icon>
+            <ion-fab-button @click="() => router.push('/colecao/novaplanta')">
+            <ion-icon :icon="add"></ion-icon>
             </ion-fab-button>
             </ion-fab>
         </ion-content>
@@ -15,16 +15,21 @@
 import { IonContent, IonPage} from '@ionic/vue';
 import { defineComponent } from 'vue';
 import { add } from 'ionicons/icons';
+import { useRouter } from 'vue-router';
+import ItemColecao from '../components/ItemColecao.vue'
 
 export default defineComponent({
   name: 'Colecao',
   components: {
     IonContent,
     IonPage,
+    ItemColecao
   },
   setup() {
+    const router = useRouter();
     return{
-      add
+      add,
+      router
     }
   },
 });
