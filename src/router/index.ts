@@ -65,6 +65,11 @@ const routes: Array<RouteRecordRaw> = [
         path: '/colecao/planta',
         name: 'Planta',
         component: () => import('@/views/Planta.vue')
+      },
+      {
+        path: '/colecao/planta/dicascultivo',
+        name: 'DicasCultivo',
+        component: () => import('@/views/DicasCultivo.vue')
       }
     ]
   },
