@@ -10,6 +10,10 @@
                     <ion-icon :icon="personSharp"></ion-icon>                    
                     Configurações
                 </ion-item>
+                <ion-item button @click="() => router.push('/home/configuracao/backup')">
+                    <ion-icon :icon="cloudUploadOutline"></ion-icon>                    
+                    Backup/Restauração
+                </ion-item>
                 <ion-item button>
                     <ion-icon :icon="logOutOutline"></ion-icon>
                     Sair
@@ -30,7 +34,7 @@ import { IonHeader,
         IonIcon
         } from '@ionic/vue';
 import { useRouter } from 'vue-router';
-import { leafSharp, personSharp, logOutOutline } from 'ionicons/icons';
+import { leafSharp, personSharp, logOutOutline, cloudUploadOutline } from 'ionicons/icons';
 
 export default defineComponent({
   name: 'AppHeader',
@@ -45,7 +49,7 @@ export default defineComponent({
   },
   setup() {
       const router = useRouter();
-      return { router, leafSharp, personSharp, logOutOutline }
+      return { router, leafSharp, personSharp, logOutOutline, cloudUploadOutline }
   }
 });
 </script>

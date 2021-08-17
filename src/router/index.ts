@@ -57,6 +57,11 @@ const routes: Array<RouteRecordRaw> = [
         component: () => import('@/views/Configuracao.vue')
       },
       {
+        path: '/home/configuracao/backup',
+        name: 'Backup',
+        component: () => import('@/views/Backup.vue')
+      },
+      {
         path: '/colecao/novaplanta',
         name: 'NovaPlanta',
         component: () => import('@/views/NovaPlanta.vue')
@@ -70,6 +75,16 @@ const routes: Array<RouteRecordRaw> = [
         path: '/colecao/planta/dicascultivo',
         name: 'DicasCultivo',
         component: () => import('@/views/DicasCultivo.vue')
+      },
+      {
+        path: '/colecao/planta/dicascultivo/tutorial',
+        name: 'Tutorial',
+        component: () => import('@/views/Tutorial.vue')
+      },
+      {
+        path: '/colecao/planta/dicascultivo/tutorial/artigotutorial',
+        name: 'ArtigoTutorial',
+        component: () => import('@/views/ArtigoTutorial.vue')
       }
     ]
   },

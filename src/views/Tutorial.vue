@@ -1,31 +1,27 @@
 <template>
     <ion-page>
         <ion-content :fullscreen="true">
-            <item-dicas></item-dicas>
+           <card-tutorial></card-tutorial>
         </ion-content>
     </ion-page>
 </template>
 
 <script lang="ts">
-import { IonContent, IonPage} from '@ionic/vue';
+import { IonContent, IonPage } from '@ionic/vue';
 import { defineComponent } from 'vue';
-import { add } from 'ionicons/icons';
 import { useRouter } from 'vue-router';
-import ItemDicas from '../components/ItemDicas.vue'
+import CardTutorial from '../components/CardTutorial.vue'
 
 export default defineComponent({
-  name: 'Colecao',
+  name: 'Tutorial',
   components: {
     IonContent,
     IonPage,
-    ItemDicas
+    CardTutorial
   },
   setup() {
-    const router = useRouter();
-    return{
-      add,
-      router
-    }
-  },
+      const router = useRouter();
+      return { router };
+ }
 });
 </script>

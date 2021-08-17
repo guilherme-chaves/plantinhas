@@ -21,12 +21,25 @@
      </ion-col>
      <ion-col size="12" size-sm>
      <div id="input">
-         <ion-input type="password" placeholder="sua nova senha"><ion-icon :icon="lockClosed"></ion-icon></ion-input>
+        <ion-select value="notifications" interface="action-sheet">
+            <ion-select-option value="manjericão">Manjericão</ion-select-option>
+            <ion-select-option value="alecrim">Alecrim</ion-select-option>
+            <ion-select-option value="hortela">Hortelã</ion-select-option>
+        </ion-select>
      </div>
      </ion-col>
      <ion-col size="12" size-sm>
      <div id="container">
         <strong>Estágio de desenvolvimento</strong>
+     </div>
+     </ion-col>
+     <ion-col size="12" size-sm>
+     <div id="input">
+        <ion-select value="notifications" interface="action-sheet">
+            <ion-select-option value="semente">Semente</ion-select-option>
+            <ion-select-option value="muda">Muda</ion-select-option>
+            <ion-select-option value="planta-adulta">Planta Adulta</ion-select-option>
+        </ion-select>
      </div>
      </ion-col>
      <ion-card>
