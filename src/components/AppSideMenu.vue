@@ -10,7 +10,7 @@
                     <ion-icon :icon="personSharp"></ion-icon>                    
                     Configurações
                 </ion-item>
-                <ion-item button>
+                <ion-item button @click="doLogout">
                     <ion-icon :icon="logOutOutline"></ion-icon>
                     Sair
                 </ion-item>
@@ -31,6 +31,7 @@ import { IonHeader,
         } from '@ionic/vue';
 import { useRouter } from 'vue-router';
 import { leafSharp, personSharp, logOutOutline } from 'ionicons/icons';
+import useFirebaseAuth from '../api/firebase-auth'
 
 export default defineComponent({
   name: 'AppHeader',
@@ -44,8 +45,17 @@ export default defineComponent({
       IonIcon
   },
   setup() {
+      const { logout } = useFirebaseAuth();
       const router = useRouter();
-      return { router, leafSharp, personSharp, logOutOutline }
+
+      const doLogout = async () => {
+        await logout();
+        router.options.scrollBehavior;
+        router.replace({ name: "Start", replace: true });
+      };
+
+      
+      return { doLogout, leafSharp, personSharp, logOutOutline }
   }
 });
 </script>

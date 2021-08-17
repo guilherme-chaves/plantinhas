@@ -10,12 +10,12 @@
      </ion-col>
      <ion-col size="12" size-sm>
      <div id="input">
-         <ion-input type="email" placeholder="nome de usuario"><ion-icon :icon="personSharp"></ion-icon></ion-input>
+         <ion-input type="email" name="username" placeholder="Nome de usuario" @ionChange="handleChange"><ion-icon :icon="personSharp"></ion-icon></ion-input>
      </div>
      </ion-col>
      <ion-col size="12" size-sm>
      <div id="input">
-         <ion-input type="password" placeholder="senha"><ion-icon :icon="lockClosed"></ion-icon></ion-input>
+         <ion-input type="password" name="password" placeholder="Senha" @ionChange="handleChange"><ion-icon :icon="lockClosed"></ion-icon></ion-input>
      </div>
      </ion-col>
      </ion-row>
@@ -23,7 +23,7 @@
     </ion-content>
 
     <ion-footer>
-      <ion-button expand="block" color="primary" shape="round" class="botao">
+      <ion-button expand="block" color="primary" shape="round" class="botao" @click="doLogin">
         Entrar
       </ion-button>
     </ion-footer>
@@ -31,9 +31,11 @@
 </template>
 
 <script lang="ts">
-import { IonContent, IonPage, IonGrid, IonRow, IonCol, IonInput, IonFooter, IonButton } from '@ionic/vue';
-import { defineComponent } from 'vue';
+import { IonContent, IonPage, IonGrid, IonRow, IonCol, IonInput, IonFooter, IonButton, alertController } from '@ionic/vue';
+import { defineComponent, ref } from 'vue';
+import { useRouter } from "vue-router";
 import { personSharp, lockClosed } from 'ionicons/icons';
+import useFirebaseAuth from '../api/firebase-auth';
 
 export default defineComponent({
   name: 'Login',
@@ -48,7 +50,44 @@ export default defineComponent({
     IonButton,
   },
   setup() {
-    return{
+    const state = useFirebaseAuth();
+    const router = useRouter();
+    const credentials = ref<{[key: string]: string}>({
+      username: "",
+      password: "",
+    });
+
+    const handleChange = (e: CustomEvent) => {
+      const name: string = (e?.target as any)?.name;
+      credentials.value[name as string] = e.detail.value;
+    };
+
+    const handleAlert = (message: string, isError = false) => {
+      alertController
+        .create({
+          header: isError ? "Erro: " : "Atenção: ",
+          message: message,
+          buttons: ["OK"],
+        })
+        .then((t) => t.present());
+    };
+
+    const doLogin = async () => {
+      try {
+        const { username, password } = credentials.value;
+        await state.login(username, password);
+        router.push({name : "Tabs", replace: true });
+      } catch (error) {
+        console.log(error);
+        handleAlert(error.message, true);
+      }
+    };
+
+    return {
+      ...state,
+      credentials,
+      doLogin,
+      handleChange,
       personSharp,
       lockClosed
     }
