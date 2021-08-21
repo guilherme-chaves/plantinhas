@@ -20,7 +20,7 @@
      </ion-col>
      <ion-col size="12" size-sm>
      <div id="input">
-      <ion-button expand="block" color="primary" shape="round" class="botao">
+      <ion-button expand="block" shape="round" class="botao">
         Salvar Alterações
       </ion-button>
      </div>
@@ -37,7 +37,7 @@
      </ion-col>
      <ion-col size="12" size-sm>
      <div id="input">
-      <ion-button expand="block" color="primary" shape="round" class="botao">
+      <ion-button expand="block" shape="round" class="botao">
         Salvar Alterações
       </ion-button>
      </div>
@@ -101,7 +101,7 @@ ion-row{
 #container strong {
   font-size: 20px;
   line-height: 26px;
-  color: #2699fb;
+  color: #167D2E;
 }
 
 #input{
@@ -109,12 +109,13 @@ ion-row{
 }
 
 #input ion-input { 
-    border: 1px #2699fb solid; 
+    border: 1px #167D2E solid; 
     border-radius: 2em;
-    color: #2699fb;
+    color: #167D2E;
 }
 
 .botao{
   margin: 1em;
+  --background: #167D2E;
 }
 </style>

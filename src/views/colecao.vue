@@ -34,3 +34,9 @@ export default defineComponent({
   },
 });
 </script>
+
+<style scoped>
+ion-fab-button{
+  --background: #70A333;
+}
+</style>

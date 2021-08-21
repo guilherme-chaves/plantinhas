@@ -7,7 +7,7 @@
                   <ion-icon :icon="personCircleSharp"></ion-icon>
                 </ion-avatar>
                 <ion-label>Fulano</ion-label>
-                <ion-progress-bar color="primary" :value="getProgress"></ion-progress-bar>
+                <ion-progress-bar :value="getProgress"></ion-progress-bar>
                 <ion-chip>
                   <ion-label>Novato</ion-label>
                 </ion-chip>
@@ -101,6 +101,10 @@ export default defineComponent({
 </script>
 
 <style scoped>
+  ion-progress-bar{
+    color: #167D2E;
+  }
+
   ion-icon{
     font-size: 52px;
     width:56px;
@@ -118,12 +122,12 @@ export default defineComponent({
     left: 0;
     right: 0;
     border-radius: 50%;
-    border: 2px #3880ff solid;
+    border: 2px #167D2E solid;
   }
 
   ion-card {
-    --background: #4c8dff3a;
-    color: #3880ff;
+    --background: white;
+    color: #167D2E;
   }
 
   ion-card-content > ion-label {
@@ -158,7 +162,7 @@ export default defineComponent({
 
   ion-chip {
     margin-top: 4px;
-    background: #3880ff;
+    background: #167D2E;
     --color: white;
   }
 

@@ -2,15 +2,15 @@
   <ion-page>
     <ion-content :fullscreen="true"> 
       <div id="container">
-        <strong>Plantinhas</strong>
+        <strong>Plantin</strong>
       </div>
     </ion-content>
 
     <ion-footer>
-      <ion-button expand="block" color="primary" shape="round" class="botao" @click="() => router.push('/login')">
+      <ion-button expand="block" shape="round" class="botao1" @click="() => router.push('/login')">
         Entrar
       </ion-button>
-      <ion-button expand="block" color="secondary" shape="round" class="botao" @click="() => router.push('/cadastro')">
+      <ion-button expand="block" shape="round" class="botao2" @click="() => router.push('/cadastro')">
         Cadastrar
       </ion-button>
       <ion-button expand="block" color="secondary" shape="round" class="botao" @click="() => router.push('/tabs')">
@@ -42,7 +42,7 @@ export default defineComponent({
 
 <style scoped>
 ion-content{
-  --ion-background-color: #bce0fd;
+  --ion-background-color: linear-gradient(151deg, #70A333, #167D2E);
 }
 
 #container {
@@ -58,7 +58,7 @@ ion-content{
 #container strong {
   font-size: 35px;
   line-height: 26px;
-  color: #2699fb;
+  color: white;
 }
 
 #container p {
@@ -74,8 +74,14 @@ ion-content{
   text-decoration: none;
 }
 
-.botao{
+.botao1{
   margin: 1em;
+  --background: #167D2E;
+}
+
+.botao2{
+  margin: 1em;
+  --background: #B0D25A;
 }
 
 ion-footer{

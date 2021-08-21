@@ -145,7 +145,7 @@ export default defineComponent({
 
 ion-card {
     width: 92.5vw;
-    border: 2px #3880ff solid;
+    border: 2px #167D2E solid;
     border-radius: .5em;
     padding: 2px;
 }
@@ -169,7 +169,7 @@ ion-card-title, .task-item {
     justify-content: space-between;
     align-content: space-between;
     align-items: baseline;
-    color: #3880ff;
+    color: #167D2E;
 }
 
 ion-card-content {
@@ -186,5 +186,11 @@ ion-label {
 
 ion-note {
     font-size: 9pt;
+}
+
+ion-checkbox{
+    --background-checked: #167D2E;
+    --border-color: #167D2E;
+    --border-color-checked: #167D2E;
 }
 </style>

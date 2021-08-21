@@ -32,11 +32,16 @@ export default defineComponent({
 </script>
 
 <style scoped>
+ion-toggle{
+  --background-checked: #70A333;
+  --handle-background-checked: #167D2E;
+}
+
 ion-item{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    color: #3880ff;
+    color: #167D2E;
 }
 
 #texto{

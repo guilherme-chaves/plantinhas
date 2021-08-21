@@ -62,7 +62,7 @@ ion-header {
     margin-top: 2.25em;
     padding-bottom: 1em;
     text-align: center;
-    color: #3880ff;
+    color: #167D2E;
 }
 ion-item {
     --color: #808289;

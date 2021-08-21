@@ -43,6 +43,6 @@ ion-card-content{
 }
 
 ion-icon, ion-card-title, ion-card-subtitle{
-    color: #3880ff;
+    color: #167D2E;
 }
 </style>

@@ -4,7 +4,7 @@
             <ion-buttons slot="start">
                 <ion-back-button text slot="start"></ion-back-button>
             </ion-buttons>
-            <ion-title color="primary">Plantinhas</ion-title>
+            <ion-title>Plantin</ion-title>
             <ion-buttons slot="end">
                 <ion-menu-button text slot="end" menu="usuario"></ion-menu-button>
             </ion-buttons>
@@ -47,10 +47,11 @@ ion-title{
     position: absolute;
     left: 0;
     top: 0;
+    color: #167D2E;
 }
 
 ion-buttons {
-    color: #3880ff;
+    color: #167D2E;
     margin-top: 0.7em;
     margin-right: 0;
     font-size: 20px;

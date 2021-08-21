@@ -50,5 +50,7 @@ export default defineComponent({
 </script>
 
 <style scoped>
-
+ion-button{
+    --background: #167D2E;
+}
 </style>

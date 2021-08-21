@@ -53,7 +53,7 @@ export default defineComponent({
     }
 
     .trofeu-obtido {
-        --background: #3880ff;
+        --background: #167D2E;
     }
 
     .trofeu-obtido-novo {

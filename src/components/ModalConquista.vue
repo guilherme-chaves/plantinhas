@@ -2,7 +2,7 @@
     <ion-card>
     <ion-card-header>
         <ion-card-title>{{ title }}</ion-card-title>
-        <ion-chip color="primary">Nível {{ nivelConquista }}</ion-chip>
+        <ion-chip>Nível {{ nivelConquista }}</ion-chip>
         <ion-buttons slot="end">
             <ion-button onclick="dismissModal()">Close</ion-button>
         </ion-buttons>
@@ -30,6 +30,9 @@ export default defineComponent({
 </script>
 
 <style scoped>
+ion-chip{
+    color: #167D2E;
+}
 ion-card-header {
     display: flex;
     flex-direction: column;
@@ -42,7 +45,7 @@ ion-card-content {
 }
 
 .instrucoes {
-    color: #3880ff;
+    color: #167D2E;
     font-size: 9pt;
 }
 </style>

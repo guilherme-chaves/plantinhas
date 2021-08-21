@@ -29,3 +29,9 @@ export default defineComponent({
   },
 });
 </script>
+
+<style scoped>
+ion-card-title{
+  color: #167D2E;
+}
+</style>

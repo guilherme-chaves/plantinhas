@@ -64,7 +64,7 @@
       </ion-card>
      <ion-col size="12" size-sm>
      <div id="input">
-      <ion-button expand="block" color="primary" shape="round" class="botao">
+      <ion-button expand="block" shape="round" class="botao">
         Salvar
       </ion-button>
      </div>
@@ -99,6 +99,14 @@ export default defineComponent({
 </script>
 
 <style scoped>
+ion-button{
+  --background: #167D2E;
+}
+
+strong{
+  color: #167D2E;
+}
+
 #container{
   margin-top: 20px;
 }

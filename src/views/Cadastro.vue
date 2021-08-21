@@ -1,18 +1,17 @@
 <template>
   <ion-page>
      <ion-content :fullscreen="true"> 
-     <ion-grid>
-     <ion-row>
-     <ion-col size="12" size-sm>
      <div id="container">
         <strong>Crie uma conta</strong>
+        <div id="texto">
+          Para criar sua conta no pockeT vamos precisar de algumas informações 
+        </div>
      </div>
-     </ion-col>
-     <ion-col size="12" size-sm>
-     <div id="texto">
-        Para criar sua conta no app de plantinhas vamos precisar de alumas informações 
-     </div>
-     </ion-col>
+    </ion-content>
+
+    <ion-footer>
+     <ion-grid>
+     <ion-row>
      <ion-col size="12" size-sm>
      <div id="input">
          <ion-input type="email" placeholder="seu email"><ion-icon :icon="mail"></ion-icon></ion-input>
@@ -25,11 +24,8 @@
      </ion-col>
      </ion-row>
      </ion-grid>
-    </ion-content>
-
-    <ion-footer>
-      <ion-button expand="block" color="primary" shape="round" class="botao">
-        Criar conta
+      <ion-button expand="block" shape="round" class="botao">
+        Continuar
       </ion-button>
     </ion-footer>
   </ion-page>
@@ -67,7 +63,7 @@ ion-icon{
 }
 
 ion-content{
-  --ion-background-color: white;
+  --ion-background-color: linear-gradient(151deg, #70A333, #167D2E);
 }
 
 ion-row{
@@ -76,18 +72,24 @@ ion-row{
 
 #container {
   text-align: center;
+  position: absolute;
+  left: 10vw;
+  right: 10vw;
+  top: 20%;
+  transform: translateY(-50%);
 }
 
 #texto{
     text-align: center;
-    color: #92949c;
+    color: white;
     font-size: 13px;
+    margin: 10px;
 }
 
 #container strong {
   font-size: 20px;
   line-height: 26px;
-  color: #2699fb;
+  color: white;
 }
 
 #input{
@@ -95,12 +97,18 @@ ion-row{
 }
 
 #input ion-input { 
-    border: 1px #2699fb solid; 
+    border: 1px #167D2E solid; 
     border-radius: 2em;
-    color: #2699fb;
+    color: #167D2E;
 }
 
 .botao{
   margin: 1em;
+  --background: #167D2E;
+}
+
+ion-footer{
+  background: white;
+  padding: 2em 0.5em 2em 0.5em;
 }
 </style>

@@ -4,15 +4,15 @@
             <ion-img src="https://via.placeholder.com/500x200.jpg"></ion-img>
             <div id="header" class="conteudo">
             <strong>Nome da Planta</strong>
-            <ion-note>Especie - Estagio da planta</ion-note>
-            <ion-note>Nome Cientifico</ion-note>
+            <ion-note id="tipo1">Especie - Estagio da planta</ion-note>
+            <ion-note id="tipo2">Nome Cientifico</ion-note>
             </div>
             <p class="conteudo">Lorem Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna 
                 aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
                 Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint 
                 occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
             </p>
-            <ion-button expand="block" color="primary" shape="round" class="botao" @click="() => router.push('/colecao/planta/dicascultivo')">
+            <ion-button expand="block" shape="round" class="botao" @click="() => router.push('/colecao/planta/dicascultivo')">
                 Dicas de Cultivo
             </ion-button>
             <ion-card>
@@ -66,10 +66,23 @@ export default defineComponent({
 </script>
 
 <style scoped>
+ion-button{
+  --background: #167D2E;
+}
+
+#tipo1{
+  color: #257437;
+}
+
+#tipo2{
+  color: #587960;
+}
+
 #header{
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    color: #167D2E;
 }
 
 .conteudo{

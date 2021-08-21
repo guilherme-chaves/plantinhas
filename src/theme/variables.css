@@ -2,7 +2,14 @@
 http://ionicframework.com/docs/theming/ */
 
 /** Ionic CSS Variables **/
+@font-face {
+  font-family: "Poppins";
+  src: url("../../public/assets/Poppins/Poppins-Medium.ttf");
+}
 :root {
+  --ion-background-color: white;
+  --ion-font-family: "Poppins", "Roboto", "Arial", sans-serif;
+
   /** primary **/
   --ion-color-primary: #3880ff;
   --ion-color-primary-rgb: 56, 128, 255;
@@ -197,11 +204,11 @@ http://ionicframework.com/docs/theming/ */
    */
 
   .md body {
-    --ion-background-color: #121212;
-    --ion-background-color-rgb: 18,18,18;
+    --ion-background-color: #F8FAF5;
+    --ion-background-color-rgb: 248,250,245;
 
-    --ion-text-color: #ffffff;
-    --ion-text-color-rgb: 255,255,255;
+    --ion-text-color: #121212;
+    --ion-text-color-rgb: 18,18,18;
 
     --ion-border-color: #222222;
 

@@ -59,13 +59,13 @@ export default defineComponent({
 
 <style scoped>
 ion-tab-bar{
-    --background: #3880ff;
+    --background: white;
 }
 ion-tab-button {
-    --color: white;
-    --color-selected: #ccd2ff;
-    --background: #3880ff;
-    --background-focused: #4c8dff;
+    --color: #167D2E;
+    --color-selected: #167D2E;
+    --background: white;
+    --background-focused: white;
 }
 ion-icon {
     font-size: 18px;

@@ -24,6 +24,6 @@ export default defineComponent({
     text-align: center;
     font-size: 25px;
     line-height: 26px;
-    color: #2699fb;
+    color: #167D2E;
   }
 </style>

@@ -101,7 +101,7 @@ export default defineComponent({
 <style scoped>
 ion-title {
     margin: .5em -0.5em;
-    color: #3880ff;
+    color: #167D2E;
 }
 
 ion-segment {
@@ -110,7 +110,7 @@ ion-segment {
 
 ion-segment-button {
     min-width: auto;
-    --background-checked: #3880ff;
+    --background-checked: #167D2E;
     --color-checked: white;
     --border-radius: .4em;
     --margin-top: 4px;
@@ -126,8 +126,8 @@ ion-segment-button::after {
     left: 4px;
     right: 4px;
     border-radius: .4em;
-    border: 1.25px #3880ff solid;
-    box-shadow: 0px 0px 16px -4px #3881ff40;
+    border: 1.25px #167D2E solid;
+    box-shadow: 0px 0px 16px -4px #0c5f1f;
 }
 
 .day-number {
@@ -146,6 +146,6 @@ ion-segment-button::after {
     margin-top: 1em;
     padding-left: .5em;
     font-size: 9pt;
-    color: #3880ff;
+    color: #167D2E;
 }
 </style>

@@ -31,7 +31,7 @@ export default defineComponent({
 <style scoped>
 
 #card{
-    color: #3880ff;
+    color: #167D2E;
     display: inline-flex;
     font-size: 12px;
     margin: 4px;
@@ -41,7 +41,7 @@ ion-icon{
     border-radius: 50%;
     border: 1px white solid;
     position: relative;
-    background: #bcf;
+    background: #C2DC82;
     margin: auto 4px auto 4px;
     font-size: 30px;
 }
@@ -55,7 +55,7 @@ ion-icon::after {
     left: -1;
     right: -1;
     border-radius: 50%;
-    border: 2px #3880ff solid;
+    border: 2px #167D2E solid;
 }
 
 #card > div{

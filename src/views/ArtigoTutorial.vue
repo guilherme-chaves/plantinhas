@@ -35,6 +35,10 @@ export default defineComponent({
 </script>
 
 <style scoped>
+ion-title{
+    color: #167D2E;
+}
+
 #conteudo{
     margin: 8px;
 }
