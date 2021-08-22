@@ -1,4 +1,4 @@
-import { plantStage } from '../interfaces/enum'
+import { plantStage } from '../enum'
 
 export interface UserData {
     userId: string;

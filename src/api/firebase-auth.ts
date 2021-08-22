@@ -27,9 +27,7 @@ export default function() {
         firebase
             .database()
             .ref('users/' + firebase.auth().currentUser?.uid)
-            .once('value')
-            .then(
-            (snapshot) => {
+            .on('value', (snapshot) => {
                 const data = snapshot.val();
                 const userData: UserData = {
                     userId: data.userId,

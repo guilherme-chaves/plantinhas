@@ -1,0 +1,6 @@
+{
+	"appId": "com.redpenguin.plantinhas",
+	"appName": "Plantinh",
+	"webDir": "public",
+	"bundledWebRuntime": false
+}

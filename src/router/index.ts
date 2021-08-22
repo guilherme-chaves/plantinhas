@@ -1,7 +1,6 @@
 import { createRouter, createWebHistory } from '@ionic/vue-router';
 import { RouteRecordRaw } from 'vue-router';
 import Home from '../views/Start.vue';
-import AppFooter from '../components/AppFooter.vue';
 import useFirebaseAuth from "../api/firebase-auth";
 const state = useFirebaseAuth();
 
@@ -32,7 +31,7 @@ const routes: Array<RouteRecordRaw> = [
   },
   {
     path: '/tabs',
-    component: AppFooter,
+    component: () => import('@/components/AppFooter.vue'),
     children: [
       {
         path: '/',
@@ -77,9 +76,8 @@ router.beforeEach((to, from, next) => {
   console.log('user' + state.user.value);
   if (state.user.value && (to.name === 'Login' || to.name === 'Cadastro' || to.name === 'Start')) {
     next({ name: "Tabs", replace: true });
-  /* Descomentar isso antes de enviar para produção!!!!
   } else if (!state.user.value && !(to.name === 'Login' || to.name === 'Cadastro' || to.name === 'Start')) {
-    next({ name: "Start", replace: true });*/
+    next({ name: "Start", replace: true });
   } else {
     next();
   }

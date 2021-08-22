@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "963703952659",
+    "firebase_url": "https://redpenguin-plantinhas-default-rtdb.firebaseio.com",
+    "project_id": "redpenguin-plantinhas",
+    "storage_bucket": "redpenguin-plantinhas.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:963703952659:android:caed106245e92d5438b6e6",
+        "android_client_info": {
+          "package_name": "com.redpenguin.plantinhas"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "963703952659-4fivgl1ac63lolmdh9m5samcjfqnosbq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCqw0zcfUuUccu_CYer3bPjoWRQshk5vH4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "963703952659-4fivgl1ac63lolmdh9m5samcjfqnosbq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

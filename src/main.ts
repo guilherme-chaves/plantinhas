@@ -1,9 +1,8 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router';
-import { IonicVue } from '@ionic/vue';
-//vuex
-import store from './store'
+import { IonicVue, isPlatform } from '@ionic/vue';
+// Firebase Auth
 import useFirebaseAuth from './api/firebase-auth'
 
 /* Core CSS required for Ionic components to work properly */
@@ -25,15 +24,48 @@ import '@ionic/vue/css/display.css';
 /* Theme variables */
 import './theme/variables.css';
 
+import { defineCustomElements } from '@ionic/pwa-elements/loader';
+
 const { authCheck } = useFirebaseAuth();
 
+// TypeORM
+import 'reflect-metadata';
+import { createConnections } from 'typeorm';
+import { useSQLite } from 'vue-sqlite-hook/dist';
+import getConnections from './database/getConnections'
+
 const app = createApp(App)
-  .use(IonicVue)
-  .use(store);
-  
-authCheck().then(() => {
-  app.use(router);
-  router.isReady();
-}).then(() => {
-  app.mount('#app');
+  .use(IonicVue);
+
+const {
+  getCapacitorSQLite, checkConnectionsConsistency
+} = useSQLite({});
+
+checkConnectionsConsistency().catch((e) => {
+  console.log(e);
+  return {};
 });
+
+const sqliteConnection = getCapacitorSQLite();
+
+createConnections(getConnections(sqliteConnection))
+.then(async connections => {
+  try {
+    // run all migrations
+    for (const connection of connections) {
+      await connection.runMigrations();
+    }
+    console.log(sqliteConnection);
+    authCheck().then(() => {
+      app.use(router);
+      router.isReady();
+    }).then(() => {
+      app.mount('#app');
+      
+      defineCustomElements(window);
+    });
+  } catch (e) {
+    console.log(e.message);
+  }
+});
+  
