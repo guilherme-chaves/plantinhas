@@ -1,0 +1,6 @@
+{
+	"appId": "com.redpenguin.plantin",
+	"appName": "Plantin",
+	"webDir": "public",
+	"bundledWebRuntime": false
+}

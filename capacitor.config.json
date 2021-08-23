@@ -1,6 +1,6 @@
 {
-	"appId": "io.ionic.starter",
-	"appName": "plantinhas",
-	"webDir": "dist",
-	"bundledWebRuntime": false
+  "appId": "com.redpenguin.plantin",
+  "appName": "Plantin",
+  "webDir": "public",
+  "bundledWebRuntime": false
 }

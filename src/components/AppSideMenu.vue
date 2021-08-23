@@ -1,12 +1,12 @@
 <template>
-    <ion-menu side="end" menu-id="usuario" content-id="main-page-tabs" type="overlay">
+    <ion-menu side="end" menu-id="usuario" content-id="main-page-tabs" type="overlay" ref="menuOpcoes">
         <ion-header>
             <ion-icon :icon="leafSharp" id="logo"></ion-icon>
             <ion-title>Plantinhas</ion-title>
         </ion-header>
         <ion-content>
             <ion-list>
-                <ion-item button @click="() => router.push('/home/configuracao')">
+                <ion-item button @click="() => { router.push('/home/configuracao')}">
                     <ion-icon :icon="personSharp"></ion-icon>                    
                     Configurações
                 </ion-item>

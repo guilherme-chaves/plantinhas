@@ -170,6 +170,12 @@ export default defineComponent({
     margin-top: 8px;
   }
 
+  ion-progress-bar {
+    --progress-background: #167D2E;
+    --background: #167D2E24;
+    margin: 4px 0;
+  }
+
   .modal {
     color: #222;
   }

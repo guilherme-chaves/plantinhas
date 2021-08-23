@@ -1,7 +1,7 @@
 <template>
     <ion-page>
         <ion-content :fullscreen="true">
-            <ion-title><strong>Artigos</strong></ion-title>
+            <ion-title><strong>Artigos sobre plantas</strong></ion-title>
         </ion-content>
     </ion-page>
 </template>
