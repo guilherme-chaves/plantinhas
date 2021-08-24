@@ -5,7 +5,7 @@
         </div>
         <div id="week-date">
             <ion-segment v-model="value" scrollable @ionChange="segmentChanged($event)" id="segmentTabs">
-                <ion-segment-button v-for="(day, index) in getWeekDays()" :key="day[0]" :value="index" :id="'segment-'+index">
+                <ion-segment-button v-for="(day, index) in getWeekDaysF()" :key="day[0]" :value="index" :id="'segment-'+index">
                     <ion-label class="day-number">{{ day[1] }}</ion-label>
                     <ion-label class="weekday-name">{{ day[0] }}</ion-label>
                 </ion-segment-button>
@@ -13,8 +13,9 @@
         </div>
         <ion-title>Tarefas</ion-title>
         <ion-slides @ionSlideDidChange="slideChanged($event)" :options="slideOpts" pager="false" ref="slides">
-            <ion-slide v-for="i in 7" :key="i">
-                <task-list :slide="i"></task-list>
+            <ion-spinner color="secondary" v-if="loading"/>
+            <ion-slide v-else v-for="i in 7" :key="i">
+                <task-list :slide="i" :tasks="tasks"></task-list>
             </ion-slide>
         </ion-slides>
     </div>
@@ -26,10 +27,15 @@ import { IonLabel,
     IonSegmentButton,
     IonTitle,
     IonSlides,
-    IonSlide
+    IonSlide,
+    IonSpinner
 } from '@ionic/vue';
-import { defineComponent } from 'vue';
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import { defineComponent, onBeforeMount } from 'vue';
 import TaskList from "./TaskList.vue";
+import { getCurrentDate, getWeekDaysF, getWeekDay, getWeekDayName } from '@/composables/dateFunctions.ts';
+import { useState } from "@/composables/state.ts";
+import { getTasksWeek } from "@/api/tasks.ts";
 
 export default defineComponent({
   name: 'TasksDatePicker',
@@ -45,33 +51,10 @@ export default defineComponent({
     IonTitle,
     IonSlides,
     IonSlide,
-    TaskList
+    TaskList,
+    IonSpinner
   },
   methods: {
-      getCurrentDate() {
-          const d = new Date();
-          return (d.getDate() + " de " + d.toLocaleString("default", { month: "long" }).toLowerCase() + ", " + d.getFullYear())
-      },
-      getWeekDays() {
-        const current = new Date();
-        const week = []; 
-        current.setDate((current.getDate() - current.getDay()));
-        for (let i = 0; i < 7; i++) {
-            week.push(
-                new Date(current).toLocaleString("default", { day:"2-digit", weekday: "short"}).replace(' ', '').split('.,')
-            ); 
-            current.setDate(current.getDate() + 1);
-        }
-        return week
-      },
-      getWeekDay() {
-          const d = new Date();
-          return d.getDay();
-      },
-      getWeekDayName() {
-          const d = new Date();
-          return (d.toLocaleString("default", { weekday: "short" }).replace('.',''))
-      },
       async segmentChanged(ev) {
           this.focusSegment(ev.srcElement.children[this.value].id);
           await this.$refs.slides.$el.slideTo(this.value);
@@ -88,12 +71,35 @@ export default defineComponent({
       },
   },
   setup() {
-      const d = new Date();
-      const slideOpts = {
+    const d = new Date();
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const [tasks, setTasks] = useState([]);
+    const [loading, setLoading] = useState(true);
+    let error;
+    const slideOpts = {
           initialSlide: (d.getDay()),
           speed: 400,
-      }
-      return { slideOpts }
+    }
+    
+    onBeforeMount(async () => {
+        try {
+            setTasks(await getTasksWeek());
+            setLoading(false);
+        } catch (e) {
+            console.log(e.message);
+            error = `Error: ${e.message}`;
+        }
+    });
+    return {
+        tasks,
+        error,
+        loading,
+        getCurrentDate,
+        getWeekDaysF,
+        getWeekDay,
+        getWeekDayName,
+        slideOpts
+    }
   }
 });
 </script>

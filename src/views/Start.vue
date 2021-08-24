@@ -13,9 +13,6 @@
       <ion-button expand="block" shape="round" class="botao2" @click="() => router.push('/cadastro')">
         Cadastrar
       </ion-button>
-      <ion-button expand="block" color="secondary" shape="round" class="botao" @click="() => router.push('/tabs')">
-        Teste
-      </ion-button>
     </ion-footer>
   </ion-page>
 </template>

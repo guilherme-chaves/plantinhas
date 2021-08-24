@@ -1,7 +1,9 @@
 import { createRouter, createWebHistory } from '@ionic/vue-router';
 import { RouteRecordRaw } from 'vue-router';
 import Home from '../views/Start.vue';
-import AppFooter from '../components/AppFooter.vue';
+// Autenticação / Autorização
+import useFirebaseAuth from "../api/firebase-auth";
+const state = useFirebaseAuth();
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -25,10 +27,11 @@ const routes: Array<RouteRecordRaw> = [
   },
   {
     path: '/tabs',
-    component: AppFooter,
+    component: () => import('@/components/AppFooter.vue'),
     children: [
       {
         path: '',
+        name: 'Tabs',
         redirect: '/home'
       },
       {
@@ -67,7 +70,7 @@ const routes: Array<RouteRecordRaw> = [
         component: () => import('@/views/NovaPlanta.vue')
       },
       {
-        path: '/colecao/planta',
+        path: '/colecao/planta/:id',
         name: 'Planta',
         component: () => import('@/views/Planta.vue')
       },
@@ -93,6 +96,17 @@ const routes: Array<RouteRecordRaw> = [
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes
+});
+
+router.beforeEach((to, from, next) => {
+  console.log('user' + state.user.value);
+  if (state.user.value && (to.name === 'Login' || to.name === 'Cadastro' || to.name === 'Start')) {
+    next({ name: "Tabs", replace: true });
+  } else if (!state.user.value && !(to.name === 'Login' || to.name === 'Cadastro' || to.name === 'Start')) {
+    next({ name: "Start", replace: true });
+  } else {
+    next();
+  }
 })
 
 export default router

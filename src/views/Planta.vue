@@ -43,7 +43,8 @@
 import { IonContent, IonPage} from '@ionic/vue';
 import { defineComponent } from 'vue';
 import { add } from 'ionicons/icons';
-import { useRouter } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
+import { getPlantaData } from '@/api/plantas';
 import NecessidadesPlanta from '../components/NecessidadesPlanta.vue'
 import LembretesPlanta from '../components/LembretesPlanta.vue'
 
@@ -57,7 +58,11 @@ export default defineComponent({
   },
   setup() {
     const router = useRouter();
+    const route = useRoute();
+    const { id } = route.params;
+    const plantaData = getPlantaData(id);
     return{
+      plantaData,
       add,
       router
     }

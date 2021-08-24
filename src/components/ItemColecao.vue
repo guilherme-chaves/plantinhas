@@ -1,10 +1,10 @@
 <template>
-    <ion-card button @click="() => router.push('/colecao/planta')">
+    <ion-card button @click="() => router.push('/colecao/planta/'+lista.userPlantId)">
         <ion-card-content>
             <ion-icon :icon="leafSharp"></ion-icon>
             <div>
-            <ion-card-title>Alejandro</ion-card-title>
-            <ion-card-subtitle>Manjericão</ion-card-subtitle>
+            <ion-card-title>{{ lista.plantName }}</ion-card-title>
+            <ion-card-subtitle>{{ lista.plantEsp }}</ion-card-subtitle>
             </div>
         </ion-card-content>
     </ion-card>
@@ -16,12 +16,17 @@ import { defineComponent } from 'vue';
 import { leafSharp } from 'ionicons/icons';
 import { useRouter } from 'vue-router';
 
+
 export default defineComponent({
   name: 'ItemColecao',
+  props: {
+    lista: Array,
+  },
   components: {
   },
   setup() {
     const router = useRouter();
+
     return{
       leafSharp,
       router

@@ -14,7 +14,7 @@
                     <ion-icon :icon="cloudUploadOutline"></ion-icon>                    
                     Backup/Restauração
                 </ion-item>
-                <ion-item button>
+                <ion-item button @click="doLogout">
                     <ion-icon :icon="logOutOutline"></ion-icon>
                     Sair
                 </ion-item>
@@ -35,22 +35,30 @@ import { IonHeader,
         } from '@ionic/vue';
 import { useRouter } from 'vue-router';
 import { leafSharp, personSharp, logOutOutline, cloudUploadOutline } from 'ionicons/icons';
+import useFirebaseAuth from '../api/firebase-auth';
 
 export default defineComponent({
-  name: 'AppHeader',
-  components: {
-      IonHeader,
-      IonMenu,
-      IonTitle,
-      IonContent,
-      IonList,
-      IonItem,
-      IonIcon
-  },
-  setup() {
-      const router = useRouter();
-      return { router, leafSharp, personSharp, logOutOutline, cloudUploadOutline }
-  }
+    name: 'AppHeader',
+    components: {
+        IonHeader,
+        IonMenu,
+        IonTitle,
+        IonContent,
+        IonList,
+        IonItem,
+        IonIcon
+    },
+    setup() {
+        const { logout } = useFirebaseAuth();
+        const router = useRouter();
+        const doLogout = async () => {
+            await logout();
+            router.options.scrollBehavior;
+            router.replace({ name: "Start", replace: true });
+        };
+
+    return { doLogout, router, leafSharp, personSharp, logOutOutline, cloudUploadOutline }
+    }
 });
 </script>
 

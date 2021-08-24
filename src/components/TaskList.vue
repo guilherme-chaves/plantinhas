@@ -1,6 +1,16 @@
 <template>
     <div class="tasks-list">
-        <ion-card v-for="(task, index) in tasks" :key="index+'-'+slide">
+        <ion-card v-if="tasks == undefined || tasks == []">
+            <ion-card-content>
+                <ion-label >Parece que você está sem tarefas agendadas</ion-label>
+            </ion-card-content>
+        </ion-card>
+        <ion-card v-else-if="tasks[i].length == 0">
+            <ion-card-content>
+                <ion-label>Dia livre! Você não tem nada programado para hoje</ion-label>
+            </ion-card-content>
+        </ion-card>
+        <ion-card v-else v-for="(task, index) in tasks" :key="index+'-'+slide">
             <ion-card-header>
                 <ion-card-title>
                     <div>
@@ -61,9 +71,10 @@ export default defineComponent({
     IonCheckbox
     },
     props: {
-        slide: Number
+        slide: Number,
+        tasks: Array
     },
-    data() {
+    /*data() {
         return {
             tasks: {
               1: {
@@ -113,7 +124,7 @@ export default defineComponent({
               }
           },
         }
-    },
+    },*/
     methods: {
         getIcon(type) {
             switch (type) {
@@ -148,6 +159,7 @@ ion-card {
     border: 2px #167D2E solid;
     border-radius: .5em;
     padding: 2px;
+    background-color: #ffffff;
 }
 
 ion-card-header, ion-card-content {

@@ -11,27 +11,31 @@
      <ion-row>
      <ion-col size="12" size-sm>
      <div id="input">
-         <ion-input type="email" placeholder="nome de usuario"><ion-icon :icon="personSharp"></ion-icon></ion-input>
+         <ion-input type="email" name="email" placeholder="Email de usuário" @ionChange="handleChange"><ion-icon :icon="personSharp"></ion-icon></ion-input>
      </div>
      </ion-col>
      <ion-col size="12" size-sm>
      <div id="input">
-         <ion-input type="password" placeholder="senha"><ion-icon :icon="lockClosed"></ion-icon></ion-input>
+         <ion-input type="password" placeholder="Senha" name="password" @ionChange="handleChange"><ion-icon :icon="lockClosed"></ion-icon></ion-input>
      </div>
      </ion-col>
      </ion-row>
      </ion-grid>
-      <ion-button expand="block" shape="round" class="botao">
-        Entrar
+      <ion-button expand="block" shape="round" class="botao" @click="doLogin">
+        <ion-spinner v-if="loading" color="light"/>
+        <!-- eslint-disable-next-line vue/valid-v-else -->
+        <span v-else>Entrar</span>
       </ion-button>
     </ion-footer>
   </ion-page>
 </template>
 
 <script lang="ts">
-import { IonContent, IonPage, IonGrid, IonRow, IonCol, IonInput, IonFooter, IonButton } from '@ionic/vue';
-import { defineComponent } from 'vue';
+import { IonContent, IonPage, IonGrid, IonRow, IonCol, IonInput, IonFooter, IonButton, alertController } from '@ionic/vue';
+import { defineComponent, ref } from 'vue';
+import { useRouter } from "vue-router";
 import { personSharp, lockClosed } from 'ionicons/icons';
+import useFirebaseAuth from '../api/firebase-auth';
 
 export default defineComponent({
   name: 'Login',
@@ -46,7 +50,40 @@ export default defineComponent({
     IonButton,
   },
   setup() {
+    const state = useFirebaseAuth();
+    const router = useRouter();
+    const credentials = ref<{[key: string]: string}>({
+      username: "",
+      password: "",
+    });
+    const handleChange = (e: CustomEvent) => {
+      const name: string = (e?.target as any)?.name;
+      credentials.value[name as string] = e.detail.value;
+    };
+    const handleAlert = (message: string, isError = false) => {
+      alertController
+        .create({
+          header: isError ? "Erro: " : "Atenção: ",
+          message: message,
+          buttons: ["OK"],
+        })
+        .then((t) => t.present());
+    };
+    const doLogin = async () => {
+      try {
+        const { email, password } = credentials.value;
+        await state.login(email, password);
+        router.push({name : "Tabs", replace: true });
+      } catch (error) {
+        console.log(error);
+        handleAlert(error.message, true);
+      }
+    };
     return{
+      ...state,
+      credentials,
+      doLogin,
+      handleChange,
       personSharp,
       lockClosed
     }
@@ -94,6 +131,7 @@ ion-row{
 
 .botao{
   margin: 1em;
+  padding: -4px;
   --background: #167D2E;
 }
 

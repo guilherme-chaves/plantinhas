@@ -6,13 +6,13 @@
                 <ion-avatar>
                   <ion-icon :icon="personCircleSharp"></ion-icon>
                 </ion-avatar>
-                <ion-label>Fulano</ion-label>
+                <ion-label>{{user == undefined ? "Fulano" : user.userName}}</ion-label>
                 <ion-progress-bar :value="getProgress"></ion-progress-bar>
                 <ion-chip>
-                  <ion-label>Novato</ion-label>
+                  <ion-label>{{ getLevel }}</ion-label>
                 </ion-chip>
                 <ion-note>
-                  {{ userProgress.points }} Pontos
+                  {{ user.userPoints }} Pontos
                 </ion-note>
               </ion-card-content>
             </ion-card>
@@ -45,6 +45,7 @@ import { defineComponent } from 'vue';
 import { personCircleSharp } from 'ionicons/icons';
 import TrofeusConquista from '../components/TrofeusConquista.vue'
 import ModalConquista from '../components/ModalConquista.vue'
+import { getUserData } from "@/api/user";
 
 export default defineComponent({
   name: 'Conquistas',
@@ -74,7 +75,18 @@ export default defineComponent({
   },
   computed: {
     getProgress(): number {
-        return (this.userProgress.points / this.userProgress.targetPoints);
+        return (this.user.userPoints / this.userProgress.targetPoints);
+    },
+    getLevel(): string {
+      if(this.user.userLevel >= 0 && this.user.userLevel < 3) {
+        return "Novato";
+      } else if (this.user.userLevel >= 3 && this.user.userLevel < 6) {
+        return "Aprendiz";
+      } else if (this.user.userLevel >= 6) {
+        return "Experiente";
+      } else {
+        return "Desconhecido"
+      }
     }
   },
   methods: {
@@ -92,8 +104,11 @@ export default defineComponent({
       return modal.present();
     }
   },
-  setup(){
+  setup() {
+    const { user, setUser } = getUserData();
     return{
+      user,
+      setUser,
       personCircleSharp
     }
   }
